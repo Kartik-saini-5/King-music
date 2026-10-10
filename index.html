@@ -91,7 +91,6 @@
             transition: background 0.5s ease;
         }
 
-        /* Particles */
         .particles-container { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
         .particle {
             position: absolute; width: 3px; height: 3px;
@@ -105,7 +104,6 @@
             100% { transform: translateY(-100px) translateX(50px) scale(1); opacity: 0; }
         }
 
-        /* Liquid blobs */
         .liquid-blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; opacity: 0.5; animation: floatBlob 25s ease-in-out infinite; }
         .blob-1 { top: -150px; left: -150px; width: 500px; height: 500px; background: radial-gradient(circle, var(--blob-1) 0%, transparent 70%); }
         .blob-2 { bottom: -150px; right: -150px; width: 600px; height: 600px; background: radial-gradient(circle, var(--blob-2) 0%, transparent 70%); animation-delay: -7s; }
@@ -114,7 +112,6 @@
             50% { transform: translate(30px,30px) scale(1.05); }
         }
 
-        /* 3D Spheres */
         .sphere-3d { position: fixed; border-radius: 50%; z-index: 1; pointer-events: none; animation: floatSphere 20s ease-in-out infinite; opacity: 0.7; }
         .sphere-3d::before {
             content: ''; position: absolute; top: 15%; left: 15%;
@@ -139,7 +136,7 @@
         body.theme-pastel .sphere-3d { opacity: 0.5; }
         body.theme-pastel .section-title { color: var(--accent-deep); }
 
-        /* ========== HEADER ========== */
+        /* HEADER */
         .header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px; max-width: 700px; margin: 0 auto;
@@ -148,20 +145,14 @@
         }
         @keyframes fadeDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
         .logo-container { display: flex; align-items: center; gap: 14px; }
-        
-        /* Header Logo with Rings */
         .logo-header-wrap {
             position: relative;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 60px; height: 60px;
+            display: flex; align-items: center; justify-content: center;
         }
         .logo-img {
             width: 46px; height: 46px; border-radius: 12px; object-fit: cover;
-            position: relative;
-            z-index: 2;
+            position: relative; z-index: 2;
             box-shadow: 0 8px 24px var(--accent-glow), 0 0 20px var(--accent-glow), 0 0 0 1px var(--glass-highlight) inset;
             animation: logoPulse 3s ease-in-out infinite;
         }
@@ -169,52 +160,22 @@
             0%, 100% { box-shadow: 0 8px 24px var(--accent-glow), 0 0 20px var(--accent-glow); transform: scale(1); }
             50% { box-shadow: 0 10px 32px var(--accent-glow), 0 0 40px var(--accent-glow); transform: scale(1.05); }
         }
-        .logo-header-rings {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-        }
-        .logo-header-rings span {
-            position: absolute;
-            border-radius: 50%;
-            border: 1.2px solid var(--accent);
-            opacity: 0.55;
-        }
-        .logo-header-rings span:nth-child(1) {
-            inset: 0;
-            border-color: var(--accent) transparent var(--accent) transparent;
-            animation: ringRotate 8s linear infinite;
-        }
-        .logo-header-rings span:nth-child(2) {
-            inset: -4px;
-            border-color: transparent var(--accent-bright) transparent var(--accent-bright);
-            animation: ringRotate 6s linear infinite reverse;
-        }
-        @keyframes ringRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+        .logo-header-rings { position: absolute; inset: 0; pointer-events: none; }
+        .logo-header-rings span { position: absolute; border-radius: 50%; border: 1.2px solid var(--accent); opacity: 0.55; }
+        .logo-header-rings span:nth-child(1) { inset: 0; border-color: var(--accent) transparent var(--accent) transparent; animation: ringRotate 8s linear infinite; }
+        .logo-header-rings span:nth-child(2) { inset: -4px; border-color: transparent var(--accent-bright) transparent var(--accent-bright); animation: ringRotate 6s linear infinite reverse; }
+        @keyframes ringRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         .header-crown {
-            position: absolute;
-            top: -14px;
-            right: -14px;
-            font-size: 20px;
-            z-index: 5;
+            position: absolute; top: -14px; right: -14px;
+            font-size: 20px; z-index: 5;
             filter: drop-shadow(0 0 10px gold) drop-shadow(0 0 20px rgba(255,215,0,0.8));
             animation: crownHover 3s ease-in-out infinite;
             transform-origin: center bottom;
         }
         @keyframes crownHover {
-            0%, 100% { 
-                transform: translateY(0) rotate(-6deg) scale(1); 
-                filter: drop-shadow(0 0 10px gold) drop-shadow(0 0 20px rgba(255,215,0,0.6));
-            }
-            50% { 
-                transform: translateY(-5px) rotate(6deg) scale(1.15); 
-                filter: drop-shadow(0 0 20px gold) drop-shadow(0 0 35px rgba(255,215,0,0.95));
-            }
+            0%, 100% { transform: translateY(0) rotate(-6deg) scale(1); filter: drop-shadow(0 0 10px gold) drop-shadow(0 0 20px rgba(255,215,0,0.6)); }
+            50% { transform: translateY(-5px) rotate(6deg) scale(1.15); filter: drop-shadow(0 0 20px gold) drop-shadow(0 0 35px rgba(255,215,0,0.95)); }
         }
-        
         .logo-text { display: flex; flex-direction: column; line-height: 1; }
         .logo-title {
             font-size: 16px; font-weight: 800; letter-spacing: 3px;
@@ -238,130 +199,55 @@
         }
         .theme-toggle:hover { transform: scale(1.15) rotate(180deg); }
 
-        /* Pages */
         .page { display: none; max-width: 700px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
         .page.active { display: block; animation: pageEnter 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
-        @keyframes pageEnter {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        .section-title {
-            font-size: 16px; font-weight: 500; margin: 20px 0 12px;
-            color: var(--text-primary); letter-spacing: 1px;
-            padding-left: 4px;
-        }
+        @keyframes pageEnter { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+        .section-title { font-size: 16px; font-weight: 500; margin: 20px 0 12px; color: var(--text-primary); letter-spacing: 1px; padding-left: 4px; }
 
-        /* Scroll rows */
         .scroll-row-wrapper { position: relative; overflow: hidden; margin: 0 -20px; padding: 0 20px; }
-        .scroll-row-wrapper::before, .scroll-row-wrapper::after {
-            content: ''; position: absolute; top: 0; bottom: 0; width: 50px; z-index: 5; pointer-events: none;
-        }
+        .scroll-row-wrapper::before, .scroll-row-wrapper::after { content: ''; position: absolute; top: 0; bottom: 0; width: 50px; z-index: 5; pointer-events: none; }
         .scroll-row-wrapper::before { left: 0; background: linear-gradient(90deg, var(--bg-1) 0%, transparent 100%); }
         .scroll-row-wrapper::after { right: 0; background: linear-gradient(270deg, var(--bg-1) 0%, transparent 100%); }
-        .scroll-row {
-            display: flex; gap: 14px; overflow-x: auto; padding: 8px 0 20px;
-            scrollbar-width: none; -ms-overflow-style: none;
-            animation: autoScroll 80s linear infinite; width: max-content;
-        }
+        .scroll-row { display: flex; gap: 14px; overflow-x: auto; padding: 8px 0 20px; scrollbar-width: none; -ms-overflow-style: none; animation: autoScroll 80s linear infinite; width: max-content; }
         .scroll-row::-webkit-scrollbar { display: none; }
         .scroll-row:hover { animation-play-state: paused; }
         @keyframes autoScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
         .scroll-row.reverse { animation-direction: reverse; }
 
-        .scroll-tile {
-            flex-shrink: 0; width: 145px; cursor: pointer; position: relative;
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
+        .scroll-tile { flex-shrink: 0; width: 145px; cursor: pointer; position: relative; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
         .scroll-tile:hover { transform: scale(1.1) translateY(-6px); z-index: 10; }
         .scroll-tile .tile-img-wrap { position: relative; width: 145px; height: 145px; }
-        .scroll-tile .tile-img {
-            width: 145px; height: 145px; object-fit: cover; background: var(--bg-2);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 0 1px var(--glass-highlight) inset, 0 0 20px var(--accent-glow);
-            transition: box-shadow 0.4s; display: block;
-        }
+        .scroll-tile .tile-img { width: 145px; height: 145px; object-fit: cover; background: var(--bg-2); box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 0 1px var(--glass-highlight) inset, 0 0 20px var(--accent-glow); transition: box-shadow 0.4s; display: block; }
         .scroll-tile.square .tile-img { border-radius: 20px; }
         .scroll-tile.circle .tile-img { border-radius: 50%; }
         .scroll-tile:hover .tile-img { box-shadow: 0 15px 40px var(--accent-glow), 0 0 0 1px var(--accent) inset; }
-        .scroll-tile .tile-play-overlay {
-            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-            opacity: 0; transition: opacity 0.3s; pointer-events: none;
-        }
+        .scroll-tile .tile-play-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
         .scroll-tile.square .tile-play-overlay { border-radius: 20px; }
         .scroll-tile.circle .tile-play-overlay { border-radius: 50%; }
         .scroll-tile:hover .tile-play-overlay { opacity: 1; background: radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 100%); }
-        .tile-play-icon {
-            width: 50px; height: 50px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 20px; color: var(--bg-1);
-            box-shadow: 0 10px 30px var(--accent-glow);
-            transform: scale(0.5); transition: transform 0.3s;
-        }
+        .tile-play-icon { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%); display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--bg-1); box-shadow: 0 10px 30px var(--accent-glow); transform: scale(0.5); transition: transform 0.3s; }
         .scroll-tile:hover .tile-play-icon { transform: scale(1); }
-        .scroll-tile .tile-title {
-            font-size: 12px; margin-top: 10px; text-align: center;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-            color: var(--text-primary); font-weight: 500; width: 145px;
-        }
-        .scroll-tile .tile-artist {
-            font-size: 10px; text-align: center; color: var(--text-secondary);
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 145px;
-        }
+        .scroll-tile .tile-title { font-size: 12px; margin-top: 10px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-primary); font-weight: 500; width: 145px; }
+        .scroll-tile .tile-artist { font-size: 10px; text-align: center; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 145px; }
 
-        /* Song cards */
         .song-list { display: flex; flex-direction: column; gap: 12px; }
-        .song-card {
-            display: flex; align-items: center; gap: 14px; padding: 12px;
-            background: var(--glass-bg); backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border); border-radius: 20px; cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.2), 0 0 0 1px var(--glass-highlight) inset;
-            position: relative; overflow: hidden;
-        }
+        .song-card { display: flex; align-items: center; gap: 14px; padding: 12px; background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; cursor: pointer; transition: all 0.3s; box-shadow: 0 6px 18px rgba(0,0,0,0.2), 0 0 0 1px var(--glass-highlight) inset; position: relative; overflow: hidden; }
         .song-card:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 12px 36px var(--accent-glow); }
         .song-card.active { border-color: var(--accent-bright); box-shadow: 0 0 30px var(--accent-glow), 0 0 0 1px var(--accent) inset; }
-        .song-card .song-art {
-            width: 55px; height: 55px; border-radius: 14px; object-fit: cover;
-            background: var(--bg-2); flex-shrink: 0;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.5), 0 0 0 1px var(--glass-highlight) inset;
-        }
+        .song-card .song-art { width: 55px; height: 55px; border-radius: 14px; object-fit: cover; background: var(--bg-2); flex-shrink: 0; box-shadow: 0 6px 20px rgba(0,0,0,0.5), 0 0 0 1px var(--glass-highlight) inset; }
         .song-card .song-info { flex: 1; overflow: hidden; min-width: 0; }
-        .song-card .song-info h3 {
-            font-size: 14px; margin-bottom: 4px; color: var(--text-primary);
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 500;
-        }
+        .song-card .song-info h3 { font-size: 14px; margin-bottom: 4px; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 500; }
         .song-card .song-info p { font-size: 11px; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .three-dots {
-            width: 38px; height: 38px; border-radius: 50%; background: transparent; border: none;
-            cursor: pointer; color: var(--text-secondary); font-size: 20px;
-            display: flex; align-items: center; justify-content: center;
-            transition: all 0.2s; flex-shrink: 0;
-        }
+        .three-dots { width: 38px; height: 38px; border-radius: 50%; background: transparent; border: none; cursor: pointer; color: var(--text-secondary); font-size: 20px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0; }
         .three-dots:hover { background: var(--glass-bg); color: var(--accent); }
 
-        /* Search */
-        .search-box {
-            display: flex; gap: 10px; background: var(--glass-bg); backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border); border-radius: 50px;
-            padding: 10px 20px; margin-bottom: 20px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.2), 0 0 0 1px var(--glass-highlight) inset;
-        }
+        .search-box { display: flex; gap: 10px; background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 50px; padding: 10px 20px; margin-bottom: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.2), 0 0 0 1px var(--glass-highlight) inset; }
         .search-box input { flex: 1; background: transparent; border: none; color: var(--text-primary); font-size: 15px; outline: none; }
         .search-box input::placeholder { color: var(--text-secondary); }
-        .search-box button {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%);
-            border: none; border-radius: 50%; width: 42px; height: 42px;
-            cursor: pointer; font-size: 18px; color: var(--bg-1); font-weight: bold;
-            box-shadow: 0 6px 20px var(--accent-glow);
-        }
+        .search-box button { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%); border: none; border-radius: 50%; width: 42px; height: 42px; cursor: pointer; font-size: 18px; color: var(--bg-1); font-weight: bold; box-shadow: 0 6px 20px var(--accent-glow); }
         .quick-chips { display: flex; gap: 8px; overflow-x: auto; padding: 5px 0 15px; scrollbar-width: none; }
         .quick-chips::-webkit-scrollbar { display: none; }
-        .chip {
-            padding: 8px 16px; background: var(--glass-bg);
-            border: 1px solid var(--glass-border); border-radius: 20px;
-            color: var(--text-primary); font-size: 12px; white-space: nowrap;
-            cursor: pointer; transition: all 0.2s;
-        }
+        .chip { padding: 8px 16px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; color: var(--text-primary); font-size: 12px; white-space: nowrap; cursor: pointer; transition: all 0.2s; }
         .chip:hover { border-color: var(--accent); color: var(--accent); }
 
         .empty-state { text-align: center; padding: 60px 20px; color: var(--text-secondary); }
@@ -370,111 +256,40 @@
         .empty-state p { font-size: 13px; }
 
         .loader { text-align: center; color: var(--accent); display: none; margin: 20px 0; font-size: 13px; }
-        .spinner {
-            display: inline-block; width: 24px; height: 24px;
-            border: 3px solid var(--glass-border); border-top-color: var(--accent);
-            border-radius: 50%; animation: spin 1s linear infinite;
-            margin-right: 10px; vertical-align: middle;
-        }
+        .spinner { display: inline-block; width: 24px; height: 24px; border: 3px solid var(--glass-border); border-top-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; margin-right: 10px; vertical-align: middle; }
         @keyframes spin { to { transform: rotate(360deg); } }
         .error-msg { text-align: center; color: #ff6b6b; display: none; margin: 10px 0; font-size: 13px; }
 
-        .load-more {
-            display: none; width: 100%; margin: 20px 0; padding: 14px;
-            background: var(--glass-bg);
-            border: 1px solid var(--accent); border-radius: 50px;
-            color: var(--accent); font-size: 14px; cursor: pointer; font-weight: 600;
-            box-shadow: 0 6px 20px var(--accent-glow);
-        }
+        .load-more { display: none; width: 100%; margin: 20px 0; padding: 14px; background: var(--glass-bg); border: 1px solid var(--accent); border-radius: 50px; color: var(--accent); font-size: 14px; cursor: pointer; font-weight: 600; box-shadow: 0 6px 20px var(--accent-glow); }
         .load-more:disabled { opacity: 0.5; }
 
-        /* Bottom nav */
-        .bottom-nav {
-            position: fixed; bottom: 0; left: 0; right: 0;
-            background: var(--glass-bg); backdrop-filter: blur(40px) saturate(220%);
-            -webkit-backdrop-filter: blur(40px) saturate(220%);
-            border-top: 1px solid var(--glass-border);
-            box-shadow: 0 -10px 40px rgba(0,0,0,0.4), 0 -3px 15px var(--accent-glow) inset;
-            padding: 10px 0 calc(10px + env(safe-area-inset-bottom));
-            z-index: 90; display: flex; justify-content: space-around; align-items: center;
-        }
-        .nav-item {
-            display: flex; flex-direction: column; align-items: center; gap: 3px;
-            background: transparent; border: none; cursor: pointer;
-            color: var(--text-secondary); font-size: 9px; font-weight: 500;
-            padding: 6px 12px; border-radius: 16px;
-            transition: all 0.3s; letter-spacing: 0.5px;
-            position: relative; min-width: 55px;
-        }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: var(--glass-bg); backdrop-filter: blur(40px) saturate(220%); -webkit-backdrop-filter: blur(40px) saturate(220%); border-top: 1px solid var(--glass-border); box-shadow: 0 -10px 40px rgba(0,0,0,0.4), 0 -3px 15px var(--accent-glow) inset; padding: 10px 0 calc(10px + env(safe-area-inset-bottom)); z-index: 90; display: flex; justify-content: space-around; align-items: center; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; gap: 3px; background: transparent; border: none; cursor: pointer; color: var(--text-secondary); font-size: 9px; font-weight: 500; padding: 6px 12px; border-radius: 16px; transition: all 0.3s; letter-spacing: 0.5px; position: relative; min-width: 55px; }
         .nav-item .nav-icon { font-size: 20px; transition: transform 0.3s; display: inline-block; }
         .nav-item.active { color: var(--accent); }
         .nav-item.active .nav-icon { transform: translateY(-3px) scale(1.15); }
-        .nav-item.active::before {
-            content: ''; position: absolute; top: -2px; left: 50%; transform: translateX(-50%);
-            width: 24px; height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            border-radius: 2px; box-shadow: 0 0 10px var(--accent-glow);
-        }
+        .nav-item.active::before { content: ''; position: absolute; top: -2px; left: 50%; transform: translateX(-50%); width: 24px; height: 3px; background: linear-gradient(90deg, transparent, var(--accent), transparent); border-radius: 2px; box-shadow: 0 0 10px var(--accent-glow); }
 
-        /* Mini player */
-        .player-bar {
-            position: fixed; bottom: 74px; left: 12px; right: 12px;
-            background: var(--glass-bg); backdrop-filter: blur(40px) saturate(220%);
-            border: 1px solid var(--glass-border); border-radius: 22px;
-            box-shadow: 0 10px 36px rgba(0,0,0,0.4), 0 0 0 1px var(--glass-highlight) inset;
-            padding: 10px 12px; z-index: 95;
-            display: flex; align-items: center; gap: 10px; cursor: pointer;
-        }
+        .player-bar { position: fixed; bottom: 74px; left: 12px; right: 12px; background: var(--glass-bg); backdrop-filter: blur(40px) saturate(220%); border: 1px solid var(--glass-border); border-radius: 22px; box-shadow: 0 10px 36px rgba(0,0,0,0.4), 0 0 0 1px var(--glass-highlight) inset; padding: 10px 12px; z-index: 95; display: flex; align-items: center; gap: 10px; cursor: pointer; }
         .player-art { width: 46px; height: 46px; border-radius: 12px; object-fit: cover; box-shadow: 0 6px 20px rgba(0,0,0,0.5); }
         .player-info { flex: 1; overflow: hidden; min-width: 0; }
         .player-info h3 { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-primary); font-weight: 500; }
         .player-info p { font-size: 10px; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .controls { display: flex; align-items: center; gap: 6px; }
-        .nav-btn {
-            width: 38px; height: 38px; border-radius: 50%;
-            border: 1px solid var(--glass-border); cursor: pointer;
-            background: var(--glass-bg);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            color: var(--accent);
-            display: flex; align-items: center; justify-content: center;
-            transition: all 0.2s; font-size: 14px;
-        }
+        .nav-btn { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--glass-border); cursor: pointer; background: var(--glass-bg); box-shadow: 0 4px 12px rgba(0,0,0,0.3); color: var(--accent); display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 14px; }
         .nav-btn:disabled { opacity: 0.3; }
-        .play-btn {
-            width: 52px; height: 52px; border-radius: 50%; border: none; cursor: pointer;
-            position: relative; overflow: hidden;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%);
-            box-shadow: 0 10px 30px var(--accent-glow), 0 0 0 1px rgba(255,255,255,0.35) inset;
-            color: var(--bg-1); font-size: 20px;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .play-btn::before {
-            content: ''; position: absolute; top: 4px; left: 6px; right: 6px; height: 45%;
-            border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, transparent 100%);
-        }
+        .play-btn { width: 52px; height: 52px; border-radius: 50%; border: none; cursor: pointer; position: relative; overflow: hidden; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%); box-shadow: 0 10px 30px var(--accent-glow), 0 0 0 1px rgba(255,255,255,0.35) inset; color: var(--bg-1); font-size: 20px; display: flex; align-items: center; justify-content: center; }
+        .play-btn::before { content: ''; position: absolute; top: 4px; left: 6px; right: 6px; height: 45%; border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%; background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, transparent 100%); }
         .progress-container-mini { position: absolute; top: 0; left: 20px; right: 20px; height: 2px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
         .progress-fill-mini { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent-bright)); border-radius: 2px; transition: width 0.1s linear; }
 
-        /* Modals */
         .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 200; display: none; align-items: flex-end; }
         .modal-overlay.active { display: flex; }
-        .modal-sheet {
-            width: 100%; max-width: 700px; margin: 0 auto;
-            background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-1) 100%);
-            border-top-left-radius: 30px; border-top-right-radius: 30px;
-            border-top: 1px solid var(--glass-border); box-shadow: 0 -20px 60px rgba(0,0,0,0.5);
-            padding: 15px 20px 30px; animation: modalSlideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            max-height: 85vh; overflow-y: auto;
-        }
+        .modal-sheet { width: 100%; max-width: 700px; margin: 0 auto; background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-1) 100%); border-top-left-radius: 30px; border-top-right-radius: 30px; border-top: 1px solid var(--glass-border); box-shadow: 0 -20px 60px rgba(0,0,0,0.5); padding: 15px 20px 30px; animation: modalSlideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); max-height: 85vh; overflow-y: auto; }
         @keyframes modalSlideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
         .modal-handle { width: 40px; height: 4px; background: var(--text-secondary); border-radius: 2px; margin: 0 auto 20px; opacity: 0.5; }
         .modal-title { font-size: 16px; font-weight: 600; margin-bottom: 15px; text-align: center; color: var(--accent); }
-        .menu-option {
-            display: flex; align-items: center; gap: 15px; padding: 15px 18px; border-radius: 16px;
-            background: var(--glass-bg); margin-bottom: 8px; cursor: pointer;
-            transition: all 0.2s; border: 1px solid transparent;
-        }
+        .menu-option { display: flex; align-items: center; gap: 15px; padding: 15px 18px; border-radius: 16px; background: var(--glass-bg); margin-bottom: 8px; cursor: pointer; transition: all 0.2s; border: 1px solid transparent; }
         .menu-option:hover { border-color: var(--accent); transform: translateX(6px); }
         .menu-option .menu-icon { font-size: 22px; width: 30px; text-align: center; }
         .menu-option .menu-label { flex: 1; font-size: 14px; font-weight: 500; }
@@ -483,85 +298,37 @@
 
         /* EQ */
         .eq-row { display: flex; align-items: center; gap: 15px; padding: 14px 0; }
-        .eq-label { width: 60px; font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: 1px; }
+        .eq-label { width: 70px; font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: 1px; }
         .eq-slider { flex: 1; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.1); outline: none; }
-        .eq-slider::-webkit-slider-thumb {
-            -webkit-appearance: none; appearance: none;
-            width: 22px; height: 22px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%);
-            box-shadow: 0 4px 15px var(--accent-glow); cursor: pointer;
-        }
-        .eq-value { width: 50px; text-align: right; font-size: 12px; color: var(--text-secondary); font-weight: 500; }
-        .eq-preset-btn {
-            padding: 8px 14px; border-radius: 20px;
-            background: var(--glass-bg); border: 1px solid var(--glass-border);
-            color: var(--text-primary); font-size: 12px; cursor: pointer;
-            transition: all 0.2s;
-        }
+        .eq-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%); box-shadow: 0 4px 15px var(--accent-glow); cursor: pointer; }
+        .eq-value { width: 55px; text-align: right; font-size: 12px; color: var(--text-secondary); font-weight: 600; }
+        .eq-preset-btn { padding: 8px 14px; border-radius: 20px; background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-primary); font-size: 12px; cursor: pointer; transition: all 0.2s; }
         .eq-preset-btn:hover, .eq-preset-btn.active { border-color: var(--accent); color: var(--accent); }
+        .eq-note { font-size: 11px; color: var(--text-secondary); text-align: center; padding: 8px; background: var(--glass-bg); border-radius: 12px; margin-bottom: 15px; }
 
-        /* AI Bot */
+        /* AI */
         .ai-chat { max-height: 400px; overflow-y: auto; padding: 10px 0; margin-bottom: 15px; display: flex; flex-direction: column; gap: 12px; }
-        .ai-message {
-            padding: 12px 16px; border-radius: 18px; font-size: 13px; line-height: 1.5;
-            max-width: 85%; word-wrap: break-word;
-        }
+        .ai-message { padding: 12px 16px; border-radius: 18px; font-size: 13px; line-height: 1.5; max-width: 85%; word-wrap: break-word; }
         .ai-message.bot { background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-primary); align-self: flex-start; border-bottom-left-radius: 4px; }
         .ai-message.user { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%); color: var(--bg-1); align-self: flex-end; border-bottom-right-radius: 4px; font-weight: 500; }
         .ai-message.typing { background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--accent); align-self: flex-start; }
         .ai-input-row { display: flex; gap: 10px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 50px; padding: 6px 6px 6px 18px; }
         .ai-input-row input { flex: 1; background: transparent; border: none; color: var(--text-primary); font-size: 14px; outline: none; }
         .ai-input-row input::placeholder { color: var(--text-secondary); }
-        .ai-send-btn {
-            width: 42px; height: 42px; border-radius: 50%; border: none;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%);
-            color: var(--bg-1); font-size: 18px; font-weight: bold;
-            cursor: pointer; box-shadow: 0 6px 20px var(--accent-glow);
-        }
+        .ai-send-btn { width: 42px; height: 42px; border-radius: 50%; border: none; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%); color: var(--bg-1); font-size: 18px; font-weight: bold; cursor: pointer; box-shadow: 0 6px 20px var(--accent-glow); }
         .ai-suggestions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-        .ai-sugg {
-            padding: 8px 14px; border-radius: 20px;
-            background: var(--glass-bg); border: 1px solid var(--glass-border);
-            color: var(--text-primary); font-size: 11px; cursor: pointer;
-            transition: all 0.2s;
-        }
+        .ai-sugg { padding: 8px 14px; border-radius: 20px; background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-primary); font-size: 11px; cursor: pointer; transition: all 0.2s; }
         .ai-sugg:hover { border-color: var(--accent); color: var(--accent); }
+        .ai-fab { position: fixed; bottom: 155px; right: 20px; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%); border: none; cursor: pointer; z-index: 88; font-size: 24px; color: var(--bg-1); box-shadow: 0 10px 30px var(--accent-glow), 0 0 0 1px rgba(255,255,255,0.3) inset; display: flex; align-items: center; justify-content: center; animation: fabPulse 3s ease-in-out infinite; }
+        @keyframes fabPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
 
-        .ai-fab {
-            position: fixed; bottom: 155px; right: 20px;
-            width: 56px; height: 56px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%);
-            border: none; cursor: pointer; z-index: 88;
-            font-size: 24px; color: var(--bg-1);
-            box-shadow: 0 10px 30px var(--accent-glow), 0 0 0 1px rgba(255,255,255,0.3) inset;
-            display: flex; align-items: center; justify-content: center;
-            animation: fabPulse 3s ease-in-out infinite;
-        }
-        @keyframes fabPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.06); }
-        }
-
-        /* Fullscreen player */
-        .fullscreen-player {
-            position: fixed; inset: 0; z-index: 1000;
-            background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
-            display: none; flex-direction: column; padding: 20px; overflow-y: auto;
-        }
+        .fullscreen-player { position: fixed; inset: 0; z-index: 1000; background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%); display: none; flex-direction: column; padding: 20px; overflow-y: auto; }
         .fullscreen-player.active { display: flex; }
         .fs-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .fs-close {
-            width: 44px; height: 44px; border-radius: 50%;
-            background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-primary);
-            font-size: 18px; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-        }
+        .fs-close { width: 44px; height: 44px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-primary); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
         .fs-label { font-size: 10px; letter-spacing: 5px; color: var(--text-secondary); text-transform: uppercase; font-weight: 300; }
         .fs-artwork-container { display: flex; justify-content: center; margin: 10px 0 30px; }
-        .fs-artwork {
-            width: 270px; height: 270px; border-radius: 40px; object-fit: cover;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 80px var(--accent-glow);
-        }
+        .fs-artwork { width: 270px; height: 270px; border-radius: 40px; object-fit: cover; box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 80px var(--accent-glow); }
         .fs-info { text-align: center; margin-bottom: 25px; }
         .fs-title { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
         .fs-artist { font-size: 13px; color: var(--text-secondary); }
@@ -569,239 +336,55 @@
         .fs-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent-bright)); border-radius: 3px; transition: width 0.1s linear; }
         .fs-time { display: flex; justify-content: space-between; max-width: 400px; margin: 0 auto 30px; font-size: 11px; color: var(--text-secondary); }
         .fs-controls { display: flex; justify-content: center; align-items: center; gap: 22px; margin-bottom: 30px; }
-        .fs-btn {
-            width: 55px; height: 55px; border-radius: 50%;
-            background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--accent);
-            font-size: 20px; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
+        .fs-btn { width: 55px; height: 55px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--accent); font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
         .fs-btn:disabled { opacity: 0.3; }
-        .fs-play-btn {
-            width: 90px; height: 90px; border-radius: 50%; border: none; cursor: pointer;
-            position: relative; overflow: hidden;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%);
-            box-shadow: 0 20px 60px var(--accent-glow), 0 0 0 1px rgba(255,255,255,0.4) inset;
-            color: var(--bg-1); font-size: 36px;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .fs-play-btn::before {
-            content: ''; position: absolute; top: 7px; left: 10px; right: 10px; height: 45%;
-            border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, transparent 100%);
-        }
+        .fs-play-btn { width: 90px; height: 90px; border-radius: 50%; border: none; cursor: pointer; position: relative; overflow: hidden; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%); box-shadow: 0 20px 60px var(--accent-glow), 0 0 0 1px rgba(255,255,255,0.4) inset; color: var(--bg-1); font-size: 36px; display: flex; align-items: center; justify-content: center; }
+        .fs-play-btn::before { content: ''; position: absolute; top: 7px; left: 10px; right: 10px; height: 45%; border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%; background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, transparent 100%); }
 
-        /* ========== PREMIUM FOOTER ========== */
+        /* FOOTER with Premium Animation */
         .footer { text-align: center; padding: 40px 20px 30px; margin-top: 40px; border-top: 1px solid var(--glass-border); }
         .footer-copyright { font-size: 10px; letter-spacing: 5px; color: var(--text-secondary); text-transform: uppercase; font-weight: 300; margin-bottom: 10px; }
-        .footer-name {
-            font-size: 32px; font-weight: 800; letter-spacing: 2px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 50%, var(--accent) 100%);
-            background-size: 200% 200%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-            animation: gradientShift 4s ease infinite; text-transform: uppercase; line-height: 1.2;
-        }
+        .footer-name { font-size: 32px; font-weight: 800; letter-spacing: 2px; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 50%, var(--accent) 100%); background-size: 200% 200%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: gradientShift 4s ease infinite; text-transform: uppercase; line-height: 1.2; }
         .footer-tagline { font-size: 10px; letter-spacing: 6px; color: var(--text-secondary); margin-top: 12px; text-transform: uppercase; font-weight: 200; }
 
-        /* Footer Logo with Rings */
-        .footer-logo-wrap {
-            position: relative;
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: logoFloat 4s ease-in-out infinite;
-        }
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0) rotateY(0deg); }
-            50% { transform: translateY(-10px) rotateY(8deg); }
-        }
-        .footer-logo {
-            width: 100px;
-            height: 100px;
-            border-radius: 24px;
-            object-fit: cover;
-            position: relative;
-            z-index: 2;
-            box-shadow: 
-                0 15px 40px rgba(0,0,0,0.5),
-                0 0 30px var(--accent-glow),
-                0 0 60px var(--accent-glow),
-                0 0 0 1.5px rgba(255,255,255,0.4) inset;
-            animation: logoShimmer 3s ease-in-out infinite;
-        }
+        .footer-logo-wrap { position: relative; width: 140px; height: 140px; margin: 0 auto 25px; display: flex; align-items: center; justify-content: center; animation: logoFloat 4s ease-in-out infinite; }
+        @keyframes logoFloat { 0%, 100% { transform: translateY(0) rotateY(0deg); } 50% { transform: translateY(-10px) rotateY(8deg); } }
+        .footer-logo { width: 100px; height: 100px; border-radius: 24px; object-fit: cover; position: relative; z-index: 2; box-shadow: 0 15px 40px rgba(0,0,0,0.5), 0 0 30px var(--accent-glow), 0 0 60px var(--accent-glow), 0 0 0 1.5px rgba(255,255,255,0.4) inset; animation: logoShimmer 3s ease-in-out infinite; }
         @keyframes logoShimmer {
-            0%, 100% { 
-                box-shadow: 0 15px 40px rgba(0,0,0,0.5), 0 0 30px var(--accent-glow), 0 0 60px var(--accent-glow), 0 0 0 1.5px rgba(255,255,255,0.4) inset;
-                filter: brightness(1) saturate(1);
-            }
-            50% { 
-                box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 50px var(--accent-glow), 0 0 100px var(--accent-glow), 0 0 0 2px rgba(255,255,255,0.6) inset;
-                filter: brightness(1.15) saturate(1.3);
-            }
+            0%, 100% { box-shadow: 0 15px 40px rgba(0,0,0,0.5), 0 0 30px var(--accent-glow), 0 0 60px var(--accent-glow), 0 0 0 1.5px rgba(255,255,255,0.4) inset; filter: brightness(1) saturate(1); }
+            50% { box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 50px var(--accent-glow), 0 0 100px var(--accent-glow), 0 0 0 2px rgba(255,255,255,0.6) inset; filter: brightness(1.15) saturate(1.3); }
         }
-        
-        .logo-rings {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-        }
-        .logo-rings span {
-            position: absolute;
-            border-radius: 50%;
-            border: 1.5px solid var(--accent);
-            opacity: 0.6;
-        }
-        .logo-rings span:nth-child(1) {
-            inset: 0;
-            border-color: var(--accent) transparent var(--accent) transparent;
-            animation: ringRotate 8s linear infinite;
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-        .logo-rings span:nth-child(2) {
-            inset: 10px;
-            border-color: transparent var(--accent-bright) transparent var(--accent-bright);
-            animation: ringRotate 6s linear infinite reverse;
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-        .logo-rings span:nth-child(3) {
-            inset: -10px;
-            border-color: var(--accent-bright) transparent var(--accent-bright) transparent;
-            animation: ringRotate 12s linear infinite;
-            opacity: 0.4;
-        }
-        
-        .logo-shine {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100px;
-            height: 100px;
-            border-radius: 24px;
-            overflow: hidden;
-            z-index: 3;
-            pointer-events: none;
-        }
-        .logo-shine::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -150%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.8) 50%, transparent 70%);
-            animation: shineSweep 3s ease-in-out infinite;
-        }
-        @keyframes shineSweep {
-            0% { left: -150%; }
-            50%, 100% { left: 150%; }
-        }
-        
-        /* ========== PREMIUM CROWN ========== */
-        .crown-wrap {
-            position: relative;
-            display: inline-block;
-            margin: 10px auto 20px;
-            padding: 15px 0;
-        }
-        .footer-crown {
-            font-size: 48px;
-            display: inline-block;
-            position: relative;
-            z-index: 2;
-            filter: drop-shadow(0 0 20px gold) drop-shadow(0 0 40px rgba(255, 215, 0, 0.6));
-            animation: crownHover 3s ease-in-out infinite;
-            transform-origin: center bottom;
-        }
-        .crown-glow {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.5) 0%, transparent 70%);
-            animation: crownGlowPulse 2.5s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 1;
-        }
-        @keyframes crownGlowPulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-            50% { transform: translate(-50%, -50%) scale(1.4); opacity: 1; }
-        }
-        .crown-sparkles {
-            position: absolute;
-            top: 5px; right: -15px;
-            font-size: 18px;
-            animation: sparkle 2s ease-in-out infinite;
-            pointer-events: none;
-            filter: drop-shadow(0 0 10px gold);
-        }
-        @keyframes sparkle {
-            0%, 100% { transform: scale(0.8) rotate(0deg); opacity: 0.6; }
-            50% { transform: scale(1.3) rotate(180deg); opacity: 1; }
-        }
+        .logo-rings { position: absolute; inset: 0; pointer-events: none; }
+        .logo-rings span { position: absolute; border-radius: 50%; border: 1.5px solid var(--accent); opacity: 0.6; }
+        .logo-rings span:nth-child(1) { inset: 0; border-color: var(--accent) transparent var(--accent) transparent; animation: ringRotate 8s linear infinite; box-shadow: 0 0 20px var(--accent-glow); }
+        .logo-rings span:nth-child(2) { inset: 10px; border-color: transparent var(--accent-bright) transparent var(--accent-bright); animation: ringRotate 6s linear infinite reverse; box-shadow: 0 0 15px var(--accent-glow); }
+        .logo-rings span:nth-child(3) { inset: -10px; border-color: var(--accent-bright) transparent var(--accent-bright) transparent; animation: ringRotate 12s linear infinite; opacity: 0.4; }
+        .logo-shine { position: absolute; top: 0; left: 0; width: 100px; height: 100px; border-radius: 24px; overflow: hidden; z-index: 3; pointer-events: none; }
+        .logo-shine::before { content: ''; position: absolute; top: 0; left: -150%; width: 100%; height: 100%; background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.8) 50%, transparent 70%); animation: shineSweep 3s ease-in-out infinite; }
+        @keyframes shineSweep { 0% { left: -150%; } 50%, 100% { left: 150%; } }
 
-        /* Settings */
-        .name-card {
-            position: relative;
-            padding: 30px 20px 25px;
-            background: linear-gradient(135deg, rgba(125, 211, 252, 0.15), rgba(56, 189, 248, 0.05));
-            backdrop-filter: blur(40px) saturate(200%);
-            border: 1px solid var(--glass-border);
-            border-radius: 28px;
-            margin-bottom: 25px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px var(--accent-glow), 0 -3px 20px var(--accent-glow) inset;
-        }
-        .name-label {
-            position: relative; z-index: 1;
-            font-size: 10px; letter-spacing: 5px; color: var(--accent);
-            font-weight: 600; display: block; margin-bottom: 15px; text-transform: uppercase;
-        }
-        .name-input {
-            position: relative; z-index: 1;
-            width: 100%;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--glass-border);
-            border-radius: 14px; padding: 12px 16px;
-            color: var(--text-primary); font-size: 14px; outline: none;
-            margin-bottom: 20px;
-        }
+        .crown-wrap { position: relative; display: inline-block; margin: 10px auto 20px; padding: 15px 0; }
+        .footer-crown { font-size: 48px; display: inline-block; position: relative; z-index: 2; filter: drop-shadow(0 0 20px gold) drop-shadow(0 0 40px rgba(255, 215, 0, 0.6)); animation: crownHover 3s ease-in-out infinite; transform-origin: center bottom; }
+        .crown-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 215, 0, 0.5) 0%, transparent 70%); animation: crownGlowPulse 2.5s ease-in-out infinite; pointer-events: none; z-index: 1; }
+        @keyframes crownGlowPulse { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; } 50% { transform: translate(-50%, -50%) scale(1.4); opacity: 1; } }
+        .crown-sparkles { position: absolute; top: 5px; right: -15px; font-size: 18px; animation: sparkle 2s ease-in-out infinite; pointer-events: none; filter: drop-shadow(0 0 10px gold); }
+        @keyframes sparkle { 0%, 100% { transform: scale(0.8) rotate(0deg); opacity: 0.6; } 50% { transform: scale(1.3) rotate(180deg); opacity: 1; } }
+
+        /* SETTINGS */
+        .name-card { position: relative; padding: 30px 20px 25px; background: linear-gradient(135deg, rgba(125, 211, 252, 0.15), rgba(56, 189, 248, 0.05)); backdrop-filter: blur(40px) saturate(200%); border: 1px solid var(--glass-border); border-radius: 28px; margin-bottom: 25px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px var(--accent-glow), 0 -3px 20px var(--accent-glow) inset; }
+        .name-label { position: relative; z-index: 1; font-size: 10px; letter-spacing: 5px; color: var(--accent); font-weight: 600; display: block; margin-bottom: 15px; text-transform: uppercase; }
+        .name-input { position: relative; z-index: 1; width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 14px; padding: 12px 16px; color: var(--text-primary); font-size: 14px; outline: none; margin-bottom: 20px; }
         .name-input:focus { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
         .name-input::placeholder { color: var(--text-secondary); }
-        .name-display {
-            position: relative; z-index: 1;
-            font-size: 42px; font-weight: 900; letter-spacing: 3px; text-align: center;
-            background: linear-gradient(135deg, var(--accent) 0%, #ffffff 30%, var(--accent-bright) 60%, var(--accent) 100%);
-            background-size: 300% 300%;
-            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-            animation: nameShine 4s ease infinite;
-            filter: drop-shadow(0 0 25px var(--accent-glow)) drop-shadow(0 4px 8px rgba(0,0,0,0.5));
-            text-transform: uppercase; line-height: 1.1; min-height: 48px; word-break: break-word;
-        }
+        .name-display { position: relative; z-index: 1; font-size: 42px; font-weight: 900; letter-spacing: 3px; text-align: center; background: linear-gradient(135deg, var(--accent) 0%, #ffffff 30%, var(--accent-bright) 60%, var(--accent) 100%); background-size: 300% 300%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: nameShine 4s ease infinite; filter: drop-shadow(0 0 25px var(--accent-glow)) drop-shadow(0 4px 8px rgba(0,0,0,0.5)); text-transform: uppercase; line-height: 1.1; min-height: 48px; word-break: break-word; }
         @keyframes nameShine { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-        .name-subtitle {
-            position: relative; z-index: 1;
-            font-size: 9px; letter-spacing: 6px; color: var(--text-secondary);
-            text-align: center; margin-top: 10px; font-weight: 300;
-        }
-        .settings-section {
-            background: var(--glass-bg); backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border); border-radius: 22px;
-            padding: 18px 8px 8px; margin-bottom: 18px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.15), 0 0 0 1px var(--glass-highlight) inset;
-        }
+        .name-subtitle { position: relative; z-index: 1; font-size: 9px; letter-spacing: 6px; color: var(--text-secondary); text-align: center; margin-top: 10px; font-weight: 300; }
+        .settings-section { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 22px; padding: 18px 8px 8px; margin-bottom: 18px; box-shadow: 0 6px 18px rgba(0,0,0,0.15), 0 0 0 1px var(--glass-highlight) inset; }
         .settings-header { display: flex; align-items: center; gap: 12px; padding: 0 14px 12px; }
         .settings-icon { font-size: 20px; }
         .settings-title { font-size: 14px; font-weight: 600; color: var(--accent); letter-spacing: 1px; }
         .settings-options { display: flex; flex-direction: column; gap: 6px; }
-        .settings-option {
-            display: flex; align-items: center; gap: 14px;
-            padding: 14px 16px; border-radius: 14px;
-            background: transparent; cursor: pointer;
-            transition: all 0.2s; border: 1px solid transparent;
-        }
+        .settings-option { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 14px; background: transparent; cursor: pointer; transition: all 0.2s; border: 1px solid transparent; }
         .settings-option:hover { background: rgba(255,255,255,0.05); border-color: var(--accent); }
         .settings-option.active { background: linear-gradient(135deg, rgba(125, 211, 252, 0.15), transparent); border-color: var(--accent); }
         .option-flag { font-size: 20px; width: 28px; text-align: center; }
@@ -811,16 +394,7 @@
         .settings-option .option-check:last-child { opacity: 0.6; font-size: 12px; }
         .settings-option.active .option-check:last-child { opacity: 1; }
 
-        /* Toast */
-        .toast {
-            position: fixed; bottom: 155px; left: 50%; transform: translateX(-50%) translateY(100px);
-            padding: 12px 24px; background: var(--glass-bg); backdrop-filter: blur(30px);
-            border: 1px solid var(--accent); border-radius: 50px;
-            color: var(--accent); font-size: 13px; font-weight: 500;
-            box-shadow: 0 12px 40px var(--accent-glow);
-            z-index: 500; opacity: 0;
-            transition: all 0.3s; pointer-events: none; white-space: nowrap;
-        }
+        .toast { position: fixed; bottom: 155px; left: 50%; transform: translateX(-50%) translateY(100px); padding: 12px 24px; background: var(--glass-bg); backdrop-filter: blur(30px); border: 1px solid var(--accent); border-radius: 50px; color: var(--accent); font-size: 13px; font-weight: 500; box-shadow: 0 12px 40px var(--accent-glow); z-index: 500; opacity: 0; transition: all 0.3s; pointer-events: none; white-space: nowrap; }
         .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
         @media (max-width: 400px) {
@@ -935,91 +509,29 @@
                 <span class="settings-title">Language</span>
             </div>
             <div class="settings-options" id="languageOptions">
-                <div class="settings-option active" data-lang="en" onclick="setLanguage('en', this)">
-                    <span class="option-flag">🇬🇧</span>
-                    <span class="option-label">English</span>
-                    <span class="option-check">✓</span>
-                </div>
-                <div class="settings-option" data-lang="hi" onclick="setLanguage('hi', this)">
-                    <span class="option-flag">🇮🇳</span>
-                    <span class="option-label">हिन्दी (Hindi)</span>
-                    <span class="option-check">✓</span>
-                </div>
-                <div class="settings-option" data-lang="es" onclick="setLanguage('es', this)">
-                    <span class="option-flag">🇪🇸</span>
-                    <span class="option-label">Español</span>
-                    <span class="option-check">✓</span>
-                </div>
-                <div class="settings-option" data-lang="fr" onclick="setLanguage('fr', this)">
-                    <span class="option-flag">🇫🇷</span>
-                    <span class="option-label">Français</span>
-                    <span class="option-check">✓</span>
-                </div>
-                <div class="settings-option" data-lang="ja" onclick="setLanguage('ja', this)">
-                    <span class="option-flag">🇯🇵</span>
-                    <span class="option-label">日本語 (Japanese)</span>
-                    <span class="option-check">✓</span>
-                </div>
+                <div class="settings-option active" data-lang="en" onclick="setLanguage('en', this)"><span class="option-flag">🇬🇧</span><span class="option-label">English</span><span class="option-check">✓</span></div>
+                <div class="settings-option" data-lang="hi" onclick="setLanguage('hi', this)"><span class="option-flag">🇮🇳</span><span class="option-label">हिन्दी (Hindi)</span><span class="option-check">✓</span></div>
+                <div class="settings-option" data-lang="es" onclick="setLanguage('es', this)"><span class="option-flag">🇪🇸</span><span class="option-label">Español</span><span class="option-check">✓</span></div>
+                <div class="settings-option" data-lang="fr" onclick="setLanguage('fr', this)"><span class="option-flag">🇫🇷</span><span class="option-label">Français</span><span class="option-check">✓</span></div>
+                <div class="settings-option" data-lang="ja" onclick="setLanguage('ja', this)"><span class="option-flag">🇯🇵</span><span class="option-label">日本語 (Japanese)</span><span class="option-check">✓</span></div>
             </div>
         </div>
 
         <div class="settings-section">
-            <div class="settings-header">
-                <span class="settings-icon">📱</span>
-                <span class="settings-title">Web App</span>
-            </div>
+            <div class="settings-header"><span class="settings-icon">📱</span><span class="settings-title">Web App</span></div>
             <div class="settings-options">
-                <div class="settings-option" onclick="installApp()">
-                    <span class="option-flag">⬇️</span>
-                    <span class="option-label">Install Kings Music App</span>
-                    <span class="option-check">›</span>
-                </div>
-                <div class="settings-option" onclick="showToast('📡 Offline mode active')">
-                    <span class="option-flag">📡</span>
-                    <span class="option-label">Offline Mode</span>
-                    <span class="option-check">›</span>
-                </div>
-                <div class="settings-option" onclick="showToast('🎵 Audio quality: 320kbps')">
-                    <span class="option-flag">🎵</span>
-                    <span class="option-label">Audio Quality</span>
-                    <span class="option-check">320kbps</span>
-                </div>
+                <div class="settings-option" onclick="installApp()"><span class="option-flag">⬇️</span><span class="option-label">Install Kings Music App</span><span class="option-check">›</span></div>
+                <div class="settings-option" onclick="showToast('📡 Offline mode active')"><span class="option-flag">📡</span><span class="option-label">Offline Mode</span><span class="option-check">›</span></div>
+                <div class="settings-option" onclick="showToast('🎵 Audio quality: 320kbps')"><span class="option-flag">🎵</span><span class="option-label">Audio Quality</span><span class="option-check">320kbps</span></div>
             </div>
         </div>
 
         <div class="settings-section">
-            <div class="settings-header">
-                <span class="settings-icon">ℹ️</span>
-                <span class="settings-title">About</span>
-            </div>
+            <div class="settings-header"><span class="settings-icon">ℹ️</span><span class="settings-title">About</span></div>
             <div class="settings-options">
-                <div class="settings-option" onclick="showToast('👑 King Kartik Saini')">
-                    <span class="option-flag">👑</span>
-                    <span class="option-label">Created by</span>
-                    <span class="option-check">King Kartik Saini</span>
-                </div>
-                <div class="settings-option" onclick="showToast('Version 1.0.0')">
-                    <span class="option-flag">📦</span>
-                    <span class="option-label">Version</span>
-                    <span class="option-check">1.0.0</span>
-                </div>
+                <div class="settings-option" onclick="showToast('👑 King Kartik Saini')"><span class="option-flag">👑</span><span class="option-label">Created by</span><span class="option-check">King Kartik Saini</span></div>
+                <div class="settings-option" onclick="showToast('Version 1.0.0')"><span class="option-flag">📦</span><span class="option-label">Version</span><span class="option-check">1.0.0</span></div>
             </div>
-        </div>
-
-        <div class="footer" style="margin-top: 30px;">
-            <div class="footer-logo-wrap">
-                <div class="logo-rings"><span></span><span></span><span></span></div>
-                <img src="logoking.png" alt="Kings Music" class="footer-logo" onerror="this.style.display='none'">
-                <div class="logo-shine"></div>
-            </div>
-            <div class="crown-wrap">
-                <div class="crown-glow"></div>
-                <div class="footer-crown">👑</div>
-                <div class="crown-sparkles">✨</div>
-            </div>
-            <div class="footer-copyright">Copyright © 2025 — All Rights Reserved</div>
-            <div class="footer-name">King Kartik Saini</div>
-            <div class="footer-tagline">Premium Sound Experience</div>
         </div>
     </div>
 
@@ -1048,6 +560,7 @@
 
     <button class="ai-fab" onclick="openAI()" title="AI Playlist Bot">🤖</button>
 
+    <!-- Menu Modal -->
     <div class="modal-overlay" id="menuModal" onclick="if(event.target===this) closeMenu()">
         <div class="modal-sheet">
             <div class="modal-handle"></div>
@@ -1062,6 +575,7 @@
         </div>
     </div>
 
+    <!-- Lyrics Modal -->
     <div class="modal-overlay" id="lyricsModal" onclick="if(event.target===this) closeLyrics()">
         <div class="modal-sheet">
             <div class="modal-handle"></div>
@@ -1070,10 +584,12 @@
         </div>
     </div>
 
+    <!-- EQ Modal -->
     <div class="modal-overlay" id="eqModal" onclick="if(event.target===this) closeEQ()">
         <div class="modal-sheet">
             <div class="modal-handle"></div>
             <div class="modal-title">🎛️ Audio Adjuster</div>
+            <div class="eq-note">⚠️ Bass/Treble tabhi kaam karenge jab aap slider hilaayenge. Volume hamesha kaam karega.</div>
             <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
                 <button class="eq-preset-btn active" onclick="applyPreset('flat', this)">Flat</button>
                 <button class="eq-preset-btn" onclick="applyPreset('bass', this)">Bass Boost</button>
@@ -1090,6 +606,7 @@
         </div>
     </div>
 
+    <!-- AI Modal -->
     <div class="modal-overlay" id="aiModal" onclick="if(event.target===this) closeAI()">
         <div class="modal-sheet">
             <div class="modal-handle"></div>
@@ -1114,6 +631,7 @@
         </div>
     </div>
 
+    <!-- Fullscreen Player -->
     <div class="fullscreen-player" id="fullscreenPlayer">
         <div class="fs-header">
             <button class="fs-close" onclick="closeFullscreen()">✕</button>
@@ -1382,16 +900,29 @@
                         const res = await fetch(`${api}/songs/${songId}`);
                         const data = await res.json();
                         const songData = data.data?.[0] || data.data || data;
-                        streamUrl = songData?.downloadUrl?.find(u => u.quality === '320kbps')?.link || songData?.downloadUrl?.[0]?.link || songData?.media_url;
+                        streamUrl = songData?.downloadUrl?.find(u => u.quality === '320kbps')?.link 
+                            || songData?.downloadUrl?.find(u => u.quality === '160kbps')?.link
+                            || songData?.downloadUrl?.[0]?.link 
+                            || songData?.media_url;
                         if (streamUrl) break;
                     } catch (e) { continue; }
                 }
             }
             if (streamUrl) {
                 currentAudio.src = streamUrl;
-                currentAudio.play();
-                isPlaying = true;
-                updatePlayButtons('⏸');
+                currentAudio.load();
+                const playPromise = currentAudio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        isPlaying = true;
+                        updatePlayButtons('⏸');
+                    }).catch(err => {
+                        console.log('Play error:', err);
+                        showToast('⚠️ Tap play button to start');
+                        isPlaying = false;
+                        updatePlayButtons('▶');
+                    });
+                }
             } else {
                 showToast('Stream not found, skipping...');
                 setTimeout(() => playNext(), 1000);
@@ -1412,9 +943,10 @@
         }
         function togglePlay() {
             if (!currentAudio.src) return;
-            if (isPlaying) { currentAudio.pause(); updatePlayButtons('▶'); }
-            else { currentAudio.play(); updatePlayButtons('⏸'); }
-            isPlaying = !isPlaying;
+            if (isPlaying) { currentAudio.pause(); updatePlayButtons('▶'); isPlaying = false; }
+            else { 
+                currentAudio.play().then(() => { updatePlayButtons('⏸'); isPlaying = true; }).catch(() => showToast('⚠️ Tap again')); 
+            }
         }
         function openFullscreen() { document.getElementById('fullscreenPlayer').classList.add('active'); document.body.style.overflow = 'hidden'; }
         function closeFullscreen() { document.getElementById('fullscreenPlayer').classList.remove('active'); document.body.style.overflow = ''; }
@@ -1566,10 +1098,11 @@
         }
         function closeLyrics() { document.getElementById('lyricsModal').classList.remove('active'); }
 
-        /* EQ */
-        let audioContext = null, bassFilter = null, midFilter = null, trebleFilter = null, gainNode = null, pannerNode = null, sourceNode = null, eqInitialized = false;
+        /* ============ AUDIO EQUALIZER (FIXED) ============ */
+        let audioContext = null, bassFilter = null, midFilter = null, trebleFilter = null, gainNode = null, pannerNode = null, sourceNode = null, eqInitialized = false, eqActive = false;
+
         function initEqualizer() {
-            if (eqInitialized) return;
+            if (eqInitialized) return true;
             try {
                 audioContext = new (window.AudioContext || window.webkitAudioContext)();
                 sourceNode = audioContext.createMediaElementSource(currentAudio);
@@ -1588,18 +1121,38 @@
                 gainNode.connect(pannerNode);
                 pannerNode.connect(audioContext.destination);
                 eqInitialized = true;
-            } catch (e) { console.log('EQ init failed:', e); }
+                return true;
+            } catch (e) { 
+                console.log('EQ init failed:', e); 
+                return false;
+            }
         }
+
         function updateEQ(type, value) {
-            initEqualizer();
-            if (!audioContext) return;
             const val = parseFloat(value);
+            // Volume always works (no Web Audio needed)
+            if (type === 'volume') { 
+                currentAudio.volume = val / 100; 
+                document.getElementById('eqVolumeVal').innerText = val + '%'; 
+                return; 
+            }
+            // For bass/mid/treble/3d, need Web Audio
+            if (!eqActive) {
+                if (!initEqualizer()) { showToast('❌ EQ not supported on this browser'); return; }
+                eqActive = true;
+            }
+            if (audioContext.state === 'suspended') audioContext.resume();
+            
             if (type === 'bass') { bassFilter.gain.value = val; document.getElementById('eqBassVal').innerText = val + 'dB'; }
             else if (type === 'mid') { midFilter.gain.value = val; document.getElementById('eqMidVal').innerText = val + 'dB'; }
             else if (type === 'treble') { trebleFilter.gain.value = val; document.getElementById('eqTrebleVal').innerText = val + 'dB'; }
-            else if (type === 'volume') { currentAudio.volume = val / 100; document.getElementById('eqVolumeVal').innerText = val + '%'; }
-            else if (type === '3d') { pannerNode.pan.value = (val - 50) / 50; gainNode.gain.value = 1 + (val / 100) * 0.3; document.getElementById('eq3dVal').innerText = val === 0 ? 'OFF' : val + '%'; }
+            else if (type === '3d') { 
+                pannerNode.pan.value = (val - 50) / 50; 
+                gainNode.gain.value = 1 + (val / 100) * 0.3; 
+                document.getElementById('eq3dVal').innerText = val === 0 ? 'OFF' : val + '%'; 
+            }
         }
+
         function applyPreset(name, btn) {
             document.querySelectorAll('.eq-preset-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
@@ -1618,18 +1171,13 @@
             updateEQ('bass', p.bass); updateEQ('mid', p.mid); updateEQ('treble', p.treble);
             showToast('🎛️ ' + name.toUpperCase() + ' preset');
         }
+
         function openEQ() {
-            initEqualizer();
-            if (audioContext && audioContext.state === 'suspended') audioContext.resume();
             document.getElementById('eqModal').classList.add('active');
         }
         function closeEQ() { document.getElementById('eqModal').classList.remove('active'); }
-        currentAudio.addEventListener('play', () => {
-            initEqualizer();
-            if (audioContext && audioContext.state === 'suspended') audioContext.resume();
-        });
 
-        /* AI BOT */
+        /* ============ AI BOT ============ */
         function openAI() {
             document.getElementById('aiModal').classList.add('active');
             setTimeout(() => document.getElementById('aiInput').focus(), 300);
@@ -1728,12 +1276,10 @@
         /* SETTINGS */
         let userName = localStorage.getItem('kings_user_name') || '';
         let currentLanguage = localStorage.getItem('kings_language') || 'en';
-
         if (userName) {
             document.getElementById('nameDisplay').innerText = userName;
             document.getElementById('userNameInput').value = userName;
         }
-
         function updateUserName(value) {
             const display = document.getElementById('nameDisplay');
             const trimmed = value.trim();
@@ -1747,7 +1293,6 @@
                 localStorage.removeItem('kings_user_name');
             }
         }
-
         function setLanguage(lang, el) {
             document.querySelectorAll('#languageOptions .settings-option').forEach(o => o.classList.remove('active'));
             el.classList.add('active');
@@ -1756,18 +1301,15 @@
             const langNames = { en: 'English', hi: 'Hindi', es: 'Spanish', fr: 'French', ja: 'Japanese' };
             showToast('🌐 Language set to ' + langNames[lang]);
         }
-
         document.querySelectorAll('#languageOptions .settings-option').forEach(opt => {
             if (opt.dataset.lang === currentLanguage) opt.classList.add('active');
             else opt.classList.remove('active');
         });
-
         let deferredPrompt = null;
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
         });
-
         function installApp() {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
@@ -1781,12 +1323,6 @@
                 showToast('📱 Add to Home Screen from browser menu');
             }
         }
-
-        let pressTimer;
-        document.getElementById('playerBar').addEventListener('touchstart', () => {
-            pressTimer = setTimeout(() => { openEQ(); }, 800);
-        });
-        document.getElementById('playerBar').addEventListener('touchend', () => clearTimeout(pressTimer));
 
         loadHomeContent();
     </script>
