@@ -1,11 +1,12 @@
-<<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>Kings Music - By King Kartik Saini</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#a855f7">
-<meta name="google-site-verification" content="Xhs-pFDVbL81KZ4n10eqs1rP-MTOVnjiGJPfHiaEQUc" />
+  <meta name="google-site-verification" content="Xhs-pFDVbL81KZ4n10eqs1rP-MTOVnjiGJPfHiaEQUc" />
 <meta name="description" content="King's Music is a modern web-based music player created by King Kartik Saini, featuring an interactive music experience and a stylish interface.">
 
 <meta name="robots" content="index, follow">
@@ -410,6 +411,111 @@ body:has(.fullscreen-player.active) {
     will-change: height;
     transform: translateZ(0);
 }
+
+  /* ===== ABOUT MODAL ===== */
+.about-modal {
+    position: fixed; inset: 0; z-index: 10005;
+    background: rgba(0,0,0,.85);
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+    opacity: 0; visibility: hidden;
+    transition: opacity .4s ease, visibility .4s ease;
+}
+.about-modal.active { opacity: 1; visibility: visible; }
+.about-card {
+    width: 100%; max-width: 460px;
+    background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-1) 100%);
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    padding: 32px 26px 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.7), 0 0 60px var(--accent-glow), 0 0 0 1px var(--glass-highlight) inset;
+    transform: scale(.85) translateY(30px);
+    opacity: 0;
+    transition: transform .5s cubic-bezier(.34,1.56,.64,1), opacity .4s ease;
+    position: relative;
+    overflow: hidden;
+}
+.about-modal.active .about-card {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+.about-card::before {
+    content: ''; position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 40%);
+    opacity: .15; animation: cardRotate 12s linear infinite; pointer-events: none;
+}
+.about-close {
+    position: absolute; top: 16px; right: 16px;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    color: var(--text-primary); font-size: 18px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all .3s; z-index: 2;
+    backdrop-filter: blur(20px);
+}
+.about-close:hover {
+    transform: scale(1.1) rotate(90deg);
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+.about-crown {
+    font-size: 50px; text-align: center; margin-bottom: 12px;
+    display: block; filter: drop-shadow(0 0 20px gold);
+    animation: crownHover 3s ease-in-out infinite;
+}
+.about-title {
+    font-size: 26px; font-weight: 900; text-align: center;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 50%, var(--accent) 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 4s ease infinite;
+    margin-bottom: 4px; letter-spacing: 1px;
+    position: relative; z-index: 1;
+}
+.about-subtitle {
+    font-size: 10px; letter-spacing: 5px; text-align: center;
+    color: var(--text-secondary); margin-bottom: 20px;
+    text-transform: uppercase; position: relative; z-index: 1;
+}
+.about-divider {
+    height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    margin: 16px 0; opacity: .5;
+}
+.about-text {
+    font-size: 14px; line-height: 1.7;
+    color: var(--text-primary); text-align: center;
+    margin-bottom: 20px; position: relative; z-index: 1;
+}
+.about-text b {
+    color: var(--accent);
+    font-weight: 700;
+}
+.about-link-btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; padding: 14px 20px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-bright));
+    color: var(--bg-1); text-decoration: none;
+    border-radius: 50px; font-weight: 700; font-size: 14px;
+    box-shadow: 0 12px 36px var(--accent-glow);
+    transition: all .3s cubic-bezier(.34,1.56,.64,1);
+    position: relative; z-index: 1;
+    letter-spacing: .5px;
+}
+.about-link-btn:hover { transform: scale(1.03) translateY(-2px); box-shadow: 0 18px 50px var(--accent-glow); }
+.about-link-btn:active { transform: scale(.97); }
+.about-signature {
+    text-align: center; font-size: 10px; letter-spacing: 4px;
+    color: var(--text-secondary); margin-top: 18px;
+    text-transform: uppercase; position: relative; z-index: 1;
+}
+
+/* Footer name clickable banayein */
+.footer-name { cursor: pointer; transition: transform .3s; }
+.footer-name:hover { transform: scale(1.03); }
+.footer-name:active { transform: scale(.97); }
 </style>
 </head>
 <body class="theme-purple">
@@ -481,8 +587,8 @@ body:has(.fullscreen-player.active) {
 </div>
 <div class="crown-wrap"><div class="crown-glow"></div><div class="footer-crown">👑</div><div class="crown-sparkles">✨</div></div>
 <div class="footer-copyright">Copyright © 2025 — All Rights Reserved</div>
-<div class="footer-name">King Kartik Saini</div>
-<div class="footer-tagline">Premium Sound Experience</div>
+<div class="footer-name" onclick="openAbout()">King Kartik Saini</div>
+  <div class="footer-tagline">Premium Sound Experience</div>
 <button class="try-app-btn" onclick="installApp()">📲 Try Web App</button>
 <div style="margin-top:12px;font-size:10px;color:var(--text-secondary);" id="visitorCount">👥 Loading...</div>
 </div>
@@ -552,8 +658,9 @@ body:has(.fullscreen-player.active) {
 <div class="settings-section">
 <div class="settings-header"><span class="settings-icon">ℹ️</span><span class="settings-title">About</span></div>
 <div class="settings-options">
-<div class="settings-option" onclick="showToast('👑 King Kartik Saini')"><span class="option-flag">👑</span><span class="option-label">Created by</span><span class="option-check">King Kartik Saini</span></div>
-<div class="settings-option" onclick="showToast('Version 1.5.0')"><span class="option-flag">📦</span><span class="option-label">Version</span><span class="option-check">1.5.0</span></div>
+<div class="settings-option" onclick="openAbout()"><span class="option-flag">👑</span><span class="option-label">Created by</span><span class="option-check">King Kartik Saini ›</span></div>
+
+<div class="settings-option" onclick="showToast('Version 1.3.0')"><span class="option-flag">📦</span><span class="option-label">Version</span><span class="option-check">1.5.0</span></div>
 </div>
 </div>
 </div>
@@ -686,6 +793,24 @@ body:has(.fullscreen-player.active) {
 <div class="explore-row" id="exploreRow"></div>
 </div>
 </div>
+  <!-- ABOUT MODAL -->
+<div class="about-modal" id="aboutModal" onclick="if(event.target===this) closeAbout()">
+    <div class="about-card">
+        <button class="about-close" onclick="closeAbout()">✕</button>
+        <span class="about-crown">👑</span>
+        <h2 class="about-title">ABOUT KING'S MUSIC</h2>
+        <p class="about-subtitle">PREMIUM SOUND EXPERIENCE</p>
+        <div class="about-divider"></div>
+        <p class="about-text">
+            <b>King's Music</b> is a web-based music player project created by <b>King Kartik Saini</b>. 
+            It focuses on a modern music-listening interface and an engaging user experience.
+        </p>
+        <a href="https://king-music.netlify.app/" target="_blank" class="about-link-btn">
+            🌐 Explore the Project
+        </a>
+        <p class="about-signature">Created by King Kartik Saini</p>
+    </div>
+</div>
 
 <div class="toast" id="toast"></div>
 
@@ -775,6 +900,23 @@ function createParticles(){
   createParticles();
 
 function showToast(msg){const t=document.getElementById('toast');t.innerText=msg;t.classList.add('show');clearTimeout(window._toastTimer);window._toastTimer=setTimeout(()=>t.classList.remove('show'),2200)}
+  // ===== ABOUT MODAL =====
+function openAbout(){
+    const modal=document.getElementById('aboutModal');
+    if(!modal)return;
+    modal.classList.add('active');
+    document.body.style.overflow='hidden';
+}
+function closeAbout(){
+    const modal=document.getElementById('aboutModal');
+    if(!modal)return;
+    modal.classList.remove('active');
+    document.body.style.overflow='';
+}
+// Escape key se close
+document.addEventListener('keydown',(e)=>{
+    if(e.key==='Escape')closeAbout();
+});
 function getImgUrl(item){
     if(!item)return '';
     const img=item.image;
@@ -864,7 +1006,7 @@ function applyPreset(name,btn){document.querySelectorAll('.eq-preset-btn').forEa
 function openEQ(){document.getElementById('eqModal').classList.add('active')}
 function closeEQ(){document.getElementById('eqModal').classList.remove('active')}
 
-function switchPage(page,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+page).classList.add('active');document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));if(btn)btn.classList.add('active');if(page==='liked')renderLiked();if(page==='download')renderDownloads();window.scrollTo({top:0,behavior:'smooth'})}
+function switchPage(page,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+page).classList.add('active');document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));if(btn)btn.classList.add('active');if(page==='liked')renderLiked();if(page==='download')renderDownloads();window.scrollTo({top:0,behavior:'smooth'})};
 
 function selectCategory(el,query){document.querySelectorAll('.cat-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');currentQuery=query;switchPage('search',document.querySelectorAll('.nav-item')[1]);document.getElementById('searchInput').value=query;startNewSearch()}
 
